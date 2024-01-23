@@ -1,15 +1,23 @@
-import Card from "../../components/Card";
+import { useEffect, useState } from "react";
+import Mapper from "../../components/Mapper";
 import Header from "../../components/header/header";
 import HeaderTable from "../../components/headerTable";
 import Wrapper from "../../components/wrapper";
 
 export default function Home() {
+  const [dt, setDt] = useState([]);
+
+  useEffect(() => {
+      const db = JSON.parse(localStorage.getItem('cw'));
+      setDt(db)
+  }, []);
+
   return (
     <>
       <Header />
       <Wrapper>
         <HeaderTable />
-        <Card />
+        <Mapper list={ dt }/>
       </Wrapper>
     </>
   );
