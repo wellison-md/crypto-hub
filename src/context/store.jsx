@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
 import PropTypes from 'prop-types';
 
-const Store = createContext([]);
+export const Store = createContext([]);
 
-export function StoreCoins({ children }) {
+export default function StoreCoins({ children }) {
   const [coins, setCoins] = useState([]);
 
   const INITIAL_STATE = {
