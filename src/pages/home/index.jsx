@@ -3,6 +3,7 @@ import Mapper from "../../components/Mapper";
 import Header from "../../components/header/header";
 import HeaderTable from "../../components/headerTable";
 import Wrapper from "../../components/wrapper";
+import Footer from "../../components/footer";
 
 export default function Home() {
   const [dt, setDt] = useState([]);
@@ -19,6 +20,7 @@ export default function Home() {
         <HeaderTable />
         <Mapper list={ dt }/>
       </Wrapper>
+      <Footer />
     </>
   );
 }
