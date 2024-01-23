@@ -9,7 +9,7 @@ const MapperContainer = styled.div`
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
-  justify-content: center;
+  justify-content: space-evenly;
 `;
 
 export default function Mapper({ list }) {
