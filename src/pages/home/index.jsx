@@ -1,4 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { getFromStorage, saveOnStorage } from "../../utils/storage";
+import { getEndpoint } from "../../utils/handleEnpoints";
+import { Store } from "../../context/store";
+
 import Mapper from "../../components/Mapper";
 import Header from "../../components/header/header";
 import HeaderTable from "../../components/headerTable";
@@ -6,19 +10,31 @@ import Wrapper from "../../components/wrapper";
 import Footer from "../../components/footer";
 
 export default function Home() {
-  const [dt, setDt] = useState([]);
+  const { coins, setCoins } = useContext(Store);
 
   useEffect(() => {
-      const db = JSON.parse(localStorage.getItem('cw'));
-      setDt(db)
-  }, []);
+    (async () => {
+      const db = getFromStorage('crypto-hub');
+
+      if (db.length === 0) {
+        const request = await fetch(getEndpoint());
+        const response = await request.json();
+        saveOnStorage('crypto-hub', response);
+        return setCoins(response);
+      }
+
+      saveOnStorage('crypto-hub', db);
+      setCoins(db);
+    })()
+
+  }, [setCoins]);
 
   return (
     <>
       <Header />
       <Wrapper>
         <HeaderTable />
-        <Mapper list={ dt }/>
+        <Mapper list={ coins }/>
       </Wrapper>
       <Footer />
     </>
