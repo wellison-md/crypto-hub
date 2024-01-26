@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { getFromStorage, saveOnStorage } from "../../utils/storage";
 import { getEndpoint } from "../../utils/handleEnpoints";
 import { Store } from "../../context/store";
-import { filterBy } from "../../utils/handleData";
+import { filterBy, sortBy } from "../../utils/handleData";
 
 import Mapper from "../../components/Mapper";
 import Header from "../../components/header/header";
@@ -35,7 +35,13 @@ export default function Home() {
       <Header />
       <Wrapper>
         <HeaderTable />
-        <Mapper list={ filterBy(coins, 'price_change_percentage_24h', 1, 'lower') }/>
+        <Mapper list={
+          sortBy(
+            filterBy(coins, 'price_change_percentage_24h', 3, 'greater'),
+            'price_change_percentage_24h',
+            'desc'
+          )
+        }/>
       </Wrapper>
       <Footer />
     </>
