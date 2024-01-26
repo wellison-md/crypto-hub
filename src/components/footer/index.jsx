@@ -8,7 +8,7 @@ const Container = styled.footer`
   display: flex;
   height: 64px;
   padding-left: 250px;
-  position: absolute;
+  position: fixed;
   width: 100%;
 
   & p > span { font-weight: 800; }
