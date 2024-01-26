@@ -11,7 +11,7 @@ import Wrapper from "../../components/wrapper";
 import Footer from "../../components/footer";
 
 export default function Home() {
-  const { coins, setCoins } = useContext(Store);
+  const { coins, setVault, setCoins } = useContext(Store);
 
   useEffect(() => {
     (async () => {
@@ -21,14 +21,14 @@ export default function Home() {
         const request = await fetch(getEndpoint());
         const response = await request.json();
         saveOnStorage('crypto-hub', response);
+        setVault(response);
         return setCoins(trending(response, 'price_change_percentage_24h', 3));
       }
 
-      saveOnStorage('crypto-hub', db);
       setCoins(trending(db, 'price_change_percentage_24h', 3));
     })()
 
-  }, [setCoins]);
+  }, [setCoins, setVault]);
 
   return (
     <>

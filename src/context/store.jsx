@@ -5,10 +5,13 @@ export const Store = createContext([]);
 
 export default function StoreCoins({ children }) {
   const [coins, setCoins] = useState([]);
+  const [vault, setVault] = useState([]);
 
   const INITIAL_STATE = {
     coins,
     setCoins,
+    vault,
+    setVault,
   }
 
   return(
