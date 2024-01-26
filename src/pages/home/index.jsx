@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { getFromStorage, saveOnStorage } from "../../utils/storage";
 import { getEndpoint } from "../../utils/handleEnpoints";
 import { Store } from "../../context/store";
-import { filterBy, sortBy } from "../../utils/handleData";
+import { trending } from "../../utils/handleData";
 
 import Mapper from "../../components/Mapper";
 import Header from "../../components/header/header";
@@ -21,11 +21,11 @@ export default function Home() {
         const request = await fetch(getEndpoint());
         const response = await request.json();
         saveOnStorage('crypto-hub', response);
-        return setCoins(response);
+        return setCoins(trending(response, 'price_change_percentage_24h', 3));
       }
 
       saveOnStorage('crypto-hub', db);
-      setCoins(db);
+      setCoins(trending(db, 'price_change_percentage_24h', 3));
     })()
 
   }, [setCoins]);
@@ -35,13 +35,7 @@ export default function Home() {
       <Header />
       <Wrapper>
         <HeaderTable />
-        <Mapper list={
-          sortBy(
-            filterBy(coins, 'price_change_percentage_24h', 3, 'greater'),
-            'price_change_percentage_24h',
-            'desc'
-          )
-        }/>
+        <Mapper list={ coins }/>
       </Wrapper>
       <Footer />
     </>

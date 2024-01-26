@@ -50,3 +50,17 @@ export function sortBy(coinList, attribute, order) {
 
   return coins.sort((a, b) => a[attribute] - b[attribute]);
 }
+
+/**
+ * Makes a trending list based on attribute and rate values
+ *
+ * @param {Object[]} coins an array of objects with data about coin.
+ * @param {String} attribute a valid attribute from coin-object.
+ * @param {Number} rate a target-value to filter data.
+ * @returns a trending list based on the parameters.
+ */
+export function trending(coins, attribute, rate) {
+  return sortBy(
+    filterBy(coins, attribute, rate, 'greater'), attribute, 'desc'
+  );
+}
