@@ -12,13 +12,23 @@ const MapperContainer = styled.div`
   justify-content: space-evenly;
 `;
 
+const Info = styled.div`
+  background-color: rgba(0, 0, 0, 0.7);
+  color: ${ ({ theme }) => theme.colors.comp };
+  padding: 8px 0 8px 24px ;
+  width: inherit;
+`;
+
 export default function Mapper({ list }) {
   return (
-    <MapperContainer>
-      {
-        list?.map((coin) => (<Card key={ coin.id } { ...coin }/>))
-      }
-    </MapperContainer>
+    <>
+      <Info>{ list.length } resultado(s) encontrado(s)</Info>
+      <MapperContainer>
+        {
+          list?.map((coin) => (<Card key={ coin.id } { ...coin }/>))
+        }
+      </MapperContainer>
+    </>
   );
 }
 
