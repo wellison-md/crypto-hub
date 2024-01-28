@@ -64,3 +64,17 @@ export function trending(coins, attribute, rate) {
     filterBy(coins, attribute, rate, 'greater'), attribute, 'desc'
   );
 }
+
+/**
+ * Makes a falling list based on attribute and rate values
+ *
+ * @param {Object[]} coins an array of objects with data about coin.
+ * @param {String} attribute a valid attribute from coin-object.
+ * @param {Number} rate a target-value to filter data.
+ * @returns a falling list based on the parameters.
+ */
+export function falling(coins, attribute, rate) {
+  return sortBy(
+    filterBy(coins, attribute, rate, 'lower'), attribute, 'asc'
+  );
+}
