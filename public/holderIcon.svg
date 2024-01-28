@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="holderIcon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="7.1268238"
+     inkscape:cx="1.753937"
+     inkscape:cy="19.22315"
+     inkscape:window-width="1366"
+     inkscape:window-height="697"
+     inkscape:window-x="303"
+     inkscape:window-y="1080"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#666666;stroke-width:2.68346"
+       id="path1"
+       cx="16"
+       cy="16"
+       r="16" />
+    <path
+       style="font-weight:bold;font-size:24px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';text-align:center;text-anchor:middle;fill:#999999"
+       d="M 15.411884,27.310939 V 4.7509387 h 2.4 V 27.310939 Z m 0.864,-2.592 q -2.016,0 -3.864,-0.528 -1.848,-0.552 -2.9760004,-1.416 l 1.3200004,-2.928 q 1.08,0.768 2.544,1.272 1.488,0.48 3,0.48 1.152,0 1.848,-0.216 0.72,-0.24 1.056,-0.648 0.336,-0.408 0.336,-0.936 0,-0.672 -0.528,-1.056 -0.528,-0.408 -1.392,-0.648 -0.864,-0.264 -1.92,-0.48 -1.032,-0.24 -2.088,-0.576 -1.032,-0.336 -1.896,-0.864 -0.864,-0.528 -1.416,-1.392 -0.5280004,-0.864 -0.5280004,-2.208 0,-1.44 0.7680004,-2.6160003 0.792,-1.2 2.352,-1.896 1.584,-0.72 3.96,-0.72 1.584,0 3.12,0.384 1.536,0.36 2.712,1.104 l -1.2,2.9520003 q -1.176,-0.672 -2.352,-0.984 -1.176,-0.336 -2.304,-0.336 -1.128,0 -1.848,0.264 -0.72,0.264 -1.032,0.696 -0.312,0.408 -0.312,0.96 0,0.648 0.528,1.056 0.528,0.384 1.392,0.624 0.864,0.24 1.896,0.48 1.056,0.24 2.088,0.552 1.056,0.312 1.92,0.84 0.864,0.528 1.392,1.392 0.552,0.864 0.552,2.184 0,1.416 -0.792,2.592 -0.792,1.176 -2.376,1.896 -1.56,0.72 -3.96,0.72 z"
+       id="text1"
+       aria-label="$" />
+  </g>
+</svg>
