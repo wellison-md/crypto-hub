@@ -25,6 +25,7 @@ export default function Home() {
         return setCoins(trending(response, 'price_change_percentage_24h', 3));
       }
 
+      setVault(db);
       setCoins(trending(db, 'price_change_percentage_24h', 3));
     })()
 
