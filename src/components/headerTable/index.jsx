@@ -1,3 +1,7 @@
+import { falling, trending } from '../../utils/handleData';
+import { useContext } from 'react';
+import { Store } from '../../context/store';
+
 import iconTrending from '../../assets/icons/trending.svg';
 import iconFalling from '../../assets/icons/falling.svg'
 import iconCoins from '../../assets/icons/coins.svg';
@@ -22,19 +26,21 @@ const Header = styled.div`
 `;
 
 export default function HeaderTable() {
+  const { setCoins, vault } = useContext(Store);
+
   return (
     <Header>
-      <Button>
+      <Button onClick={ () => setCoins(trending([...vault], 'price_change_percentage_24h', 3)) }>
         <img src={ iconTrending } alt='botão "em alta"' /> &nbsp;
         <span>Em alta</span>
       </Button>
 
-      <Button>
+      <Button onClick={ () => setCoins(falling([...vault], 'price_change_percentage_24h', 0.1)) }>
         <img src={ iconFalling } alt='botão "em queda"' /> &nbsp;
         <span>Em queda</span>
       </Button>
 
-      <Button>
+      <Button onClick={ () => setCoins(vault) }>
         <img src={ iconCoins } alt='botão "todos"' /> &nbsp;
         <span>Todos</span>
       </Button>
