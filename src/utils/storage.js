@@ -18,3 +18,14 @@ export function saveOnStorage(key, payload) {
   if (!key || !payload) throw new Error('Key and payload are required');
   localStorage.setItem(key, JSON.stringify(payload));
 }
+
+/**
+ * Checks the array-content and return true or false
+ *
+ * @param {Object[]} coinList - an array of marketCoin-objects.
+ * @returns `true` when coinList is empty and false otherwise.
+ */
+export function isEmpty(coinList) {
+  if (!coinList) throw new Error('coinList is required');
+  return coinList.length === 0;
+}
