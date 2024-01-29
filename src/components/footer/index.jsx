@@ -13,6 +13,14 @@ const Container = styled.footer`
 
   & p > span { font-weight: 800; }
   & a { text-decoration: none; color: rgb(133, 35, 210) }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
+    padding-left: 12px;
+    text-align: center;
+
+    & p > span, p { font-size: 12px }
+    & a { font-size: 12px }
+  }
 `;
 
 export default function Footer() {

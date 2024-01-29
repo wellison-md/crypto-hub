@@ -21,4 +21,10 @@ export const CardContainer = styled.div`
     font-size: 20px;
     font-weight: bold;
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
+    height: auto;
+
+    & div > h2 { font-size: 15px }
+  }
 `;
