@@ -39,6 +39,22 @@ const Header = styled.div`
       align-items: stretch;
     }
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 64px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+
+    &button {
+      max-width: 80px;
+      width: 80px;
+      align-items: stretch;
+    }
+  }
 `;
 
 export default function HeaderTable() {

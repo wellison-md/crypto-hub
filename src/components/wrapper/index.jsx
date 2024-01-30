@@ -5,6 +5,7 @@ const WrapperContainer = styled.div`
   margin: 72px 250px;
 
   @media (max-width: ${ ({theme}) => theme.breakpoints.xs }) { margin: 0; }
+  @media (max-width: ${ ({theme}) => theme.breakpoints.sm }) { margin: 0; }
 `;
 
 export default function Wrapper({ children }) {

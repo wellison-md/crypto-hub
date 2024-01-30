@@ -14,6 +14,10 @@ const Label = styled.h1`
   @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
     padding-left: 12px;
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
+    padding-left: 12px;
+  }
 `;
 
 export default function Header() {
