@@ -10,6 +10,10 @@ const MapperContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
   justify-content: space-evenly;
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
+    padding-bottom: 96px;
+  }
 `;
 
 const Info = styled.div`
