@@ -6,6 +6,7 @@ const WrapperContainer = styled.div`
 
   @media (max-width: ${ ({theme}) => theme.breakpoints.xs }) { margin: 0; }
   @media (max-width: ${ ({theme}) => theme.breakpoints.sm }) { margin: 0; }
+  @media (max-width: ${ ({theme}) => theme.breakpoints.md }) { margin: 0; }
 `;
 
 export default function Wrapper({ children }) {

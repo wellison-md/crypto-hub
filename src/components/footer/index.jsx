@@ -29,6 +29,13 @@ const Container = styled.footer`
     & p > span, p { font-size: 13px }
     & a { font-size: 13px }
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.md }) {
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+    justify-content: center;
+  }
 `;
 
 export default function Footer() {

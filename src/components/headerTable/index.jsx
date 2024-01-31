@@ -50,8 +50,10 @@ const Header = styled.div`
     background-color: black;
 
     &button {
-      max-width: 80px;
-      width: 80px;
+      display: flex;
+      width: clamp(25%, 33%, 33.34%);
+      justify-content: center;
+      text-align: center;
       align-items: stretch;
     }
   }

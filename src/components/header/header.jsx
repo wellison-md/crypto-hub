@@ -18,6 +18,11 @@ const Label = styled.h1`
   @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
     padding-left: 12px;
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.md }) {
+    padding-left: 0;
+    justify-content: center;
+  }
 `;
 
 export default function Header() {
