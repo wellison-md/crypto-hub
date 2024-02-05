@@ -7,12 +7,21 @@ const theme = {
       border1: '',
     },
     sizes: {
+      xs: '',
       sm: '',
       md: '',
       lg: '',
       xl: '',
+      xxl: '',
     },
-    breakpoints: {}
+    breakpoints: {
+      xs: '320px',
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+      xxl: '1400px',
+    }
 }
 
 export default theme;

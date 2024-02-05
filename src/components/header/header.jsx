@@ -10,6 +10,24 @@ const Label = styled.h1`
   height: 64px;
   padding-left: 250px;
   width: 100%;
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
+    padding-left: 12px;
+  }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
+    padding-left: 12px;
+  }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.md }) {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.lg }) {
+    padding-left: 0;
+    justify-content: center;
+  }
 `;
 
 export default function Header() {

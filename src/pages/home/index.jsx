@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { getFromStorage, saveOnStorage } from "../../utils/storage";
+import { getFromStorage, isEmpty, saveOnStorage } from "../../utils/storage";
 import { getEndpoint } from "../../utils/handleEnpoints";
 import { Store } from "../../context/store";
 import { trending } from "../../utils/handleData";
@@ -17,7 +17,7 @@ export default function Home() {
     (async () => {
       const db = getFromStorage('crypto-hub');
 
-      if (db.length === 0) {
+      if (isEmpty(db)) {
         const request = await fetch(getEndpoint());
         const response = await request.json();
         saveOnStorage('crypto-hub', response);
