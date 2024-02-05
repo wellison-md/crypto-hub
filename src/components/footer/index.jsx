@@ -36,6 +36,12 @@ const Container = styled.footer`
     text-align: center;
     justify-content: center;
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.lg }) {
+    padding-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
 `;
 
 export default function Footer() {

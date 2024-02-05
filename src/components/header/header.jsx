@@ -23,6 +23,11 @@ const Label = styled.h1`
     padding-left: 0;
     justify-content: center;
   }
+
+  @media (max-width: ${ ({ theme }) => theme.breakpoints.lg }) {
+    padding-left: 0;
+    justify-content: center;
+  }
 `;
 
 export default function Header() {
