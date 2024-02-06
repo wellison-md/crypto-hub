@@ -12,6 +12,7 @@ import Footer from "../../components/footer";
 
 export default function Home() {
   const { coins, setVault, setCoins } = useContext(Store);
+  document.title = ':: crypto.hub ::';
 
   useEffect(() => {
     (async () => {

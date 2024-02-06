@@ -13,3 +13,12 @@ export function getEndpoint() {
   }
   return `${INITIAL_ENDPOINT}${QUERY_PARAM}${API_KEY}`;
 }
+
+export function getCoinEndpoint(id) {
+  const COIN_ENDPOINT = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${id}&order=market_cap_desc&per_page=1&page=1&sparkline=false&price_change_percentage=24h&locale=en`;
+
+  if (!API_KEY) {
+    return COIN_ENDPOINT;
+  }
+  return `${COIN_ENDPOINT}${QUERY_PARAM}${API_KEY}`;
+}
