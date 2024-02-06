@@ -47,7 +47,7 @@ export default function CoinDetails() {
   useEffect(() => {
     (async () => {
       const request = await fetch(getCoinEndpoint(id));
-      const [response] = await request.json();
+      const response = await request.json();
       setData(response);
     })()
   }, []);
@@ -58,10 +58,10 @@ export default function CoinDetails() {
       <Wrapper>
         <CoinLabel>
           <button onClick={ () => navigate('/') }>
-            <img src={ icon ?? iconHolder } alt='Voltar' /> &nbsp;
+            <img src={ icon } alt='Voltar' /> &nbsp;
           </button>
 
-          <img src={ data?.image } alt={ data?.name } height='32px' />
+          <img src={ data?.image?.small ?? iconHolder } alt={ data?.name ?? '' } height='32px' />
           <h2>{ data?.name ?? id }</h2>
         </CoinLabel>
       </Wrapper>

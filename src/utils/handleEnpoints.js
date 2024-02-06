@@ -15,7 +15,7 @@ export function getEndpoint() {
 }
 
 export function getCoinEndpoint(id) {
-  const COIN_ENDPOINT = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${id}&order=market_cap_desc&per_page=1&page=1&sparkline=false&price_change_percentage=24h&locale=en`;
+  const COIN_ENDPOINT = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`;
 
   if (!API_KEY) {
     return COIN_ENDPOINT;
