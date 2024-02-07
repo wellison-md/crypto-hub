@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import bg from '../assets/bg/bg2.jpg';
+
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -14,6 +15,11 @@ export const GlobalStyle = createGlobalStyle`
     background-image: url(${bg});
     background-size: cover;
   }
+
+::selection {
+  background-color: #8500d3;
+  color: white;
+}
 
 ::-webkit-scrollbar {
   width: 12px;
