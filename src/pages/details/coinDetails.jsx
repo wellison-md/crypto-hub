@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getCoinEndpoint } from "../../utils/handleEnpoints";
 
 import Footer from "../../components/footer";
 import Header from "../../components/header/header";
 import Wrapper from "../../components/wrapper";
 import styled from "styled-components";
-import icon from "../../assets/icons/arrowback.svg";
+import InfoCoin from "../../components/coinDetails/infoCoin";
+import CoinLabel from "../../components/coinDetails/coinLabel";
+import CoinField from "../../components/coinDetails/coinField";
 
 const Content = styled.div`
   min-height: 600px;
@@ -15,70 +16,6 @@ const Content = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-
-  p:first-child {
-    font-size: 16px;
-    text-align: justify;
-    line-height: 1.5;
-    margin: auto;
-    padding: 24px 64px;
-  }
-
-  ul {
-    padding-left: 40px;
-    list-style: square;
-  }
-
-  details {
-    padding: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  section {
-    display: flex;
-    margin-left: 64px;
-  }
-
-  a {
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px;
-    margin-right: 8px;
-    margin-bottom: 12px;
-    color: white;
-    background-color: transparent;
-    border-radius: 4px;
-  }
-
-  a:hover {
-    background-color: #8500d3;
-  }
-`;
-
-const CoinLabel = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 64px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-
-  & button {
-    background-color: transparent;
-    border: none;
-    padding: 16px;
-    height: inherit;
-  }
-
-  & button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-
-  & h2 {
-    font-weight: 600;
-    font-size: 20px;
-    padding-left: 12px;
-  }
 `;
 
 const Container = styled.div`
@@ -87,11 +24,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
-
 export default function CoinDetails() {
-
-  const navigate = useNavigate();
-  const iconHolder = `https://cryptohub-proto.vercel.app/holderIcon.svg`;
   const id = window.location.pathname.split('/')[3];
   document.title = `:: ch :: ${id}`;
 
@@ -109,43 +42,36 @@ export default function CoinDetails() {
     <>
       <Header />
       <Wrapper>
-
-          <CoinLabel>
-            <button onClick={ () => navigate('/') }>
-              <img src={ icon } alt='Voltar' /> &nbsp;
-            </button>
-
-            <img src={ data?.image?.small ?? iconHolder } alt={ data?.name ?? '' } height='32px' />
-            <h2>{ data?.name ?? id }</h2>
-          </CoinLabel>
+        <CoinLabel {...data } />
 
         <Container>
           <Content>
-            <p>{ data?.description?.en?.split('.').filter((_c, i) => i <= 3) }</p>
-            <br />
+            <InfoCoin { ...data } />
 
-            <section>
-              <a href="" target="_blank" rel="noreferrer">Página Oficial</a>
-              <a href="" target="_blank" rel="noreferrer">Fórum</a>
-              <a href="" target="_blank" rel="noreferrer">Reddit</a>
-              <a href="" target="_blank" rel="noreferrer">Github</a>
-            </section>
+            <CoinField
+              label='Data de origem'
+              value={ data?.genesis_date }
+            />
 
-            <p>Data de origem: { data?.genesis_date ?? 'Desconhecido' }</p>
-            <br />
-            <p>algoritmo de hashing: { data?.hashing_algorithm ?? 'Desconhecido' }</p>
+            <CoinField
+              label='Algoritmo de hash'
+              value={ data?.hashing_algorithm ?? 'Desconhecido' }
+            />
 
-            <br />
-            <h3>Categories</h3>
-            <ul>
-              {
-                data?.categories?.length === 0
-                ? <p>Sem categorias associadas</p>
-                : data?.categories?.map((c, i) => (<li key={i}>{ c }</li>))
-              }
-            </ul>
+            <CoinField
+              label='Ranking de capitalização'
+              value={ `${data?.market_cap_rank}º` ?? 'Desconhecido' }
+            />
+            <CoinField
+              label='Aceitação do mercado'
+              value={ `${data?.sentiment_votes_up_percentage?.toFixed(2)} %` ?? 'Desconhecido' }
+            />
 
-            <br />
+            <CoinField
+              label='Limite em circulação'
+              value={ data?.market_data?.max_supply ?? 'Desconhecido' }
+            />
+
           </Content>
 
           <Content>
