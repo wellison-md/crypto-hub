@@ -69,7 +69,7 @@ export default function HeaderTable() {
         <span>Em alta</span>
       </Button>
 
-      <Button onClick={ () => setCoins(falling([...vault], 'price_change_percentage_24h', 0.1)) }>
+      <Button onClick={ () => setCoins(falling([...vault], 'price_change_percentage_24h', -3)) }>
         <img src={ iconFalling } alt='botão "em queda"' /> &nbsp;
         <span>Em queda</span>
       </Button>
