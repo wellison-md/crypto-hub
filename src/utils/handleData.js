@@ -66,7 +66,7 @@ export function trending(coins, attribute, rate) {
 }
 
 /**
- * Makes a falling list based on attribute and rate values
+ * Makes a top30-falling list based on attribute and rate values
  *
  * @param {Object[]} coins an array of objects with data about coin.
  * @param {String} attribute a valid attribute from coin-object.
@@ -74,7 +74,24 @@ export function trending(coins, attribute, rate) {
  * @returns a falling list based on the parameters.
  */
 export function falling(coins, attribute, rate) {
-  return sortBy(
+  const LIMIT_RESPONSE = 29;
+  return limitAt(sortBy(
     filterBy(coins, attribute, rate, 'lower'), attribute, 'asc'
-  );
+  ), LIMIT_RESPONSE)
+}
+
+/**
+ * Makes a new list with length defined by qty-param
+ *
+ * @param {Object[]} coins an array of objects with data about coin.
+ * @param {Number} qty a target lentgh of the new list (zero included)
+ * @returns a new list based on qty-param
+ */
+export function limitAt(coins, qty) {
+  if (!coins || !qty) {
+    throw new Error('the coins and qty params are required')
+  }
+
+  const limitedList = [...coins].filter((_c, i) => i <= qty);
+  return limitedList;
 }
