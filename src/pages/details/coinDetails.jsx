@@ -8,6 +8,7 @@ import styled from "styled-components";
 import InfoCoin from "../../components/coinDetails/infoCoin";
 import CoinLabel from "../../components/coinDetails/coinLabel";
 import CoinField from "../../components/coinDetails/coinField";
+import MarketCoin from "../../components/coinDetails/marketCoin";
 
 const Content = styled.div`
   min-height: 600px;
@@ -16,6 +17,8 @@ const Content = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+
+  & hr { opacity: 0.2 }
 `;
 
 const Container = styled.div`
@@ -75,7 +78,8 @@ export default function CoinDetails() {
           </Content>
 
           <Content>
-            <h3>Mercado</h3>
+            <MarketCoin { ...data } />
+            <hr />
 
             <h3>Preço atual: USD { data?.market_data?.current_price?.usd.toFixed(2) }</h3>
             <p>última atualizaçao { data?.market_data?.last_updated }</p>
