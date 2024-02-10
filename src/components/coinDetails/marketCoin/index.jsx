@@ -40,7 +40,7 @@ MarketCoin.propTypes = {
       usd: PropTypes.number,
     }),
     high_24h: PropTypes.shape({
-      usd: PropTypes.string,
+      usd: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   }),
 }
