@@ -1,11 +1,10 @@
-export function maskName(txt) {
+export function maskName(txt, limit = 13) {
   if (!txt || typeof txt !== 'string') {
     throw new Error('the txt-param must be a valid text');
   }
 
-  const LIMIT_LENGTH_CHARACTER = 13;
-  if (txt.length > LIMIT_LENGTH_CHARACTER) {
-    const newText = txt.slice(0, LIMIT_LENGTH_CHARACTER);
+  if (txt.length > limit) {
+    const newText = txt.slice(0, limit);
     return `${newText}...`;
   }
 
