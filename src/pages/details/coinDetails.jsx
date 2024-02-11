@@ -8,6 +8,9 @@ import styled from "styled-components";
 import InfoCoin from "../../components/coinDetails/infoCoin";
 import CoinLabel from "../../components/coinDetails/coinLabel";
 import CoinField from "../../components/coinDetails/coinField";
+import MarketCoin from "../../components/coinDetails/marketCoin";
+import { formatDateToView } from "../../utils/dates";
+import CurrencyCardMapper from "../../components/coinDetails/currencyCardMapper";
 
 const Content = styled.div`
   min-height: 600px;
@@ -16,6 +19,8 @@ const Content = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+
+  & hr { opacity: 0.2 }
 `;
 
 const Container = styled.div`
@@ -27,6 +32,15 @@ const Container = styled.div`
 export default function CoinDetails() {
   const id = window.location.pathname.split('/')[3];
   document.title = `:: ch :: ${id}`;
+
+  const DATE_OPTIONS = {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  };
+
+  const DATE_ORIGIN_OPTIONS = {
+    dateStyle: 'short',
+  }
 
   const [data, setData] = useState([]);
 
@@ -50,7 +64,7 @@ export default function CoinDetails() {
 
             <CoinField
               label='Data de origem'
-              value={ data?.genesis_date }
+              value={ formatDateToView(data?.genesis_date, DATE_ORIGIN_OPTIONS) }
             />
 
             <CoinField
@@ -75,26 +89,35 @@ export default function CoinDetails() {
           </Content>
 
           <Content>
-            <h3>Mercado</h3>
+            <MarketCoin { ...data } />
 
-            <h3>Preço atual: USD { data?.market_data?.current_price?.usd.toFixed(2) }</h3>
-            <p>última atualizaçao { data?.market_data?.last_updated }</p>
-            <p>Variação Preço em 24h: { data?.market_data?.price_change_percentage_24h } %</p>
-            <p>Variação Preço em 7d ias: { data?.market_data?.price_change_percentage_7d } %</p>
-            <p>Variação Preço em 14 dias: { data?.market_data?.price_change_percentage_14d } %</p>
-            <p>Variação Preço em 30 dias: { data?.market_data?.price_change_percentage_30d } %</p>
+            <CoinField
+              label='Última atualização:'
+              value={ formatDateToView(data?.market_data?.last_updated, DATE_OPTIONS) }
+            />
 
-            <details>
-              <summary>Tópico abc</summary>
-              <p>texto oculto</p>
-              <p>outro texto oculto</p>
-            </details>
+            <CoinField
+              label='Variação das últimas 24h'
+              value={ `${data?.market_data?.price_change_percentage_24h?.toFixed(3)} %` }
+            />
 
-            <details>
-              <summary>Tópico def</summary>
-              <p>texto oculto</p>
-              <p>outro texto oculto</p>
-            </details>
+            <CoinField
+              label='Variação das últimos 7 dias'
+              value={ `${data?.market_data?.price_change_percentage_7d?.toFixed(3)} %` }
+            />
+
+            <CoinField
+              label='Variação das últimos 14 dias'
+              value={ `${data?.market_data?.price_change_percentage_14d?.toFixed(3)} %` }
+            />
+
+            <CoinField
+              label='Variação das últimos 30 dias'
+              value={ `${data?.market_data?.price_change_percentage_30d?.toFixed(3)} %` }
+            />
+
+            <CurrencyCardMapper { ...data } />
+
           </Content>
         </Container>
       </Wrapper>

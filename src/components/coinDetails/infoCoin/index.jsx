@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { limitText } from './helpers';
+import { limitText } from './infoCoinHelpers';
 import { CoinBio, CoinLink, CoinLinks } from './infoCoinStyle';
 
 export default function InfoCoin(props) {

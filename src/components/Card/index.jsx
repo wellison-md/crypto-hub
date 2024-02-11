@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { CardContainer } from "./cardStyle";
 import { useNavigate } from 'react-router-dom';
+import { maskName } from './cardHelpers';
 
 export default function Card(props) {
   const navigate = useNavigate();
@@ -8,11 +9,11 @@ export default function Card(props) {
     low_24h, price_change_percentage_24h } = props;
 
   return (
-    <CardContainer onClick={ () => navigate(`/coins/details/${id}`)}>
+    <CardContainer title={ name } onClick={ () => navigate(`/coins/details/${id}`)}>
       <img src={ image } alt={ name } height='32px' />
 
       <div>
-        <h2>{ name }</h2>
+        <h2>{ maskName(name) }</h2>
         <p>preço: USD { current_price }</p>
         <p>maior preço 24h: USD { high_24h }</p>
         <p>menor preço 24h: USD { low_24h }</p>
