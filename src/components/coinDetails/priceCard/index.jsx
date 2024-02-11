@@ -25,7 +25,7 @@ const Container = styled.section`
 const TagCurrency = styled.section`
   font-size: smaller;
   font-weight: bold;
-  background-color: ${ (props) => props.tagColor || '#8500d3' };
+  background-color: ${ (props) => props.$tagColor || '#8500d3' };
   width: clamp(35px, 45px, 30%);
   border-radius: 4px;
   padding: 4px 8px;
@@ -33,13 +33,13 @@ const TagCurrency = styled.section`
 `;
 
 export default function PriceCard(props) {
-  const { label, price, currency, tagColor } = props;
+  const { label, price, currency, $tagColor } = props;
 
   return (
     <Container title={ `${label}: $${currency.toUpperCase()} ${price}` } >
       <p>{ label }</p>
       <h2>$ { price }</h2>
-      <TagCurrency tagColor={ tagColor }>{ currency.toUpperCase() }</TagCurrency>
+      <TagCurrency $tagColor={ $tagColor }>{ currency.toUpperCase() }</TagCurrency>
     </Container>
   );
 }
@@ -48,7 +48,7 @@ PriceCard.propTypes = {
   label: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   currency: PropTypes.string,
-  tagColor: PropTypes.string,
+  $tagColor: PropTypes.string,
 }
 
 PriceCard.defaultProps = {

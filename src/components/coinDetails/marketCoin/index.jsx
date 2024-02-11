@@ -18,7 +18,7 @@ export default function MarketCoin(props) {
         <PriceCard
           label='Menor cotação'
           price={ priceFormat(market_data?.current_price?.usd) }
-          tagColor='red'
+          $tagColor='red'
         />
         <PriceCard
           label='Preço atual'
@@ -27,7 +27,7 @@ export default function MarketCoin(props) {
         <PriceCard
           label='Maior cotação'
           price={ priceFormat(market_data?.high_24h?.usd) }
-          tagColor='green'
+          $tagColor='green'
         />
       </Panel>
     </>
