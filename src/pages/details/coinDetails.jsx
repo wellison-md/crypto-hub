@@ -10,6 +10,7 @@ import CoinLabel from "../../components/coinDetails/coinLabel";
 import CoinField from "../../components/coinDetails/coinField";
 import MarketCoin from "../../components/coinDetails/marketCoin";
 import { formatDateToView } from "../../utils/dates";
+import CurrencyCardMapper from "../../components/coinDetails/currencyCardMapper";
 
 const Content = styled.div`
   min-height: 600px;
@@ -101,26 +102,21 @@ export default function CoinDetails() {
             />
 
             <CoinField
-              label='Variação das últimos 7dias'
+              label='Variação das últimos 7 dias'
               value={ `${data?.market_data?.price_change_percentage_7d?.toFixed(3)} %` }
             />
 
             <CoinField
-              label='Variação das últimos 14dias'
+              label='Variação das últimos 14 dias'
               value={ `${data?.market_data?.price_change_percentage_14d?.toFixed(3)} %` }
             />
 
             <CoinField
-              label='Variação das últimos 30dias'
+              label='Variação das últimos 30 dias'
               value={ `${data?.market_data?.price_change_percentage_30d?.toFixed(3)} %` }
             />
 
-            <details>
-              <summary>Cotações fiduciárias</summary>
-              <p>texto oculto</p>
-              <p>outro texto oculto</p>
-              <p>outro texto oculto</p>
-            </details>
+            <CurrencyCardMapper { ...data } />
 
           </Content>
         </Container>
