@@ -1,10 +1,21 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
+
+const { xs, sm } = theme.breakpoints;
 
 export const CoinLinks = styled.section`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   margin: 24px 60px;
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    padding: 0;
+    margin: 24px;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const CoinBio = styled.p`
@@ -13,6 +24,10 @@ export const CoinBio = styled.p`
   line-height: 1.5;
   margin: auto;
   padding: 24px 60px;
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    padding: 0;
+  }
 `;
 
 export const CoinLink = styled.a`
@@ -27,5 +42,13 @@ export const CoinLink = styled.a`
 
   &:hover {
     background-color: #8500d3;
+  }
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 8px;
+    width: 100%;
   }
 `;
