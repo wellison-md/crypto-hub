@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import CurrencyCard from "../currencyCard";
+import theme from "../../../styles/theme";
+
 import { currencies } from "../../../utils/currency";
 import { maskName } from "../../Card/cardHelpers";
+
+const { xs, sm } = theme.breakpoints;
 
 const Container = styled.div`
   display: flex;
@@ -10,6 +14,10 @@ const Container = styled.div`
   margin: 24px 60px;
   overflow-y: scroll;
   height: clamp(200px, 250px, 250px);
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    margin: 24px;
+  }
 `;
 
 export default function CurrencyCardMapper(props) {

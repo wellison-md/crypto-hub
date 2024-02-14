@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import theme from "../../../styles/theme";
+
+const { xs, sm } = theme.breakpoints;
 
 const Container = styled.section`
   display: flex;
@@ -20,6 +23,10 @@ const Container = styled.section`
   }
 
   & p:first-child { font-size: small }
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    width: 100%;
+  }
 `;
 
 const TagCurrency = styled.section`

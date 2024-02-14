@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCoinEndpoint } from "../../utils/handleEnpoints";
+import { formatDateToView } from "../../utils/dates";
 
 import Footer from "../../components/footer";
 import Header from "../../components/header/header";
@@ -9,8 +10,10 @@ import InfoCoin from "../../components/coinDetails/infoCoin";
 import CoinLabel from "../../components/coinDetails/coinLabel";
 import CoinField from "../../components/coinDetails/coinField";
 import MarketCoin from "../../components/coinDetails/marketCoin";
-import { formatDateToView } from "../../utils/dates";
 import CurrencyCardMapper from "../../components/coinDetails/currencyCardMapper";
+import theme from "../../styles/theme";
+
+const { xs, sm } = theme.breakpoints;
 
 const Content = styled.div`
   min-height: 600px;
@@ -20,13 +23,26 @@ const Content = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
 
-  & hr { opacity: 0.2 }
+  & hr { opacity: 0.2; }
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}){
+    width: 100%;
+    max-width: 100%;
+
+    & p {
+      padding: 24px;
+    }
+  }
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 320px) and (max-width: 576px){
+    flex-direction: column;
+  }
 `;
 
 export default function CoinDetails() {
