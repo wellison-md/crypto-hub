@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
+
+const { xs, sm, md } = theme.breakpoints;
 
 const Container = styled.footer`
   align-items: center;
@@ -14,32 +17,14 @@ const Container = styled.footer`
   & p > span { font-weight: 800; }
   & a { text-decoration: none; color: rgb(133, 35, 210) }
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
-    padding-left: 12px;
-    text-align: center;
-
-    & p > span, p { font-size: 12px }
-    & a { font-size: 12px }
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
-    padding-left: 36px;
-    text-align: center;
-
-    & p > span, p { font-size: 13px }
-    & a { font-size: 13px }
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.md }) {
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
     padding-left: 24px;
-    padding-right: 24px;
     text-align: center;
     justify-content: center;
   }
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.lg }) {
+  @media screen and (min-width: ${sm}) and (max-width: ${md}) {
     padding-left: 0;
-    text-align: center;
     justify-content: center;
   }
 `;

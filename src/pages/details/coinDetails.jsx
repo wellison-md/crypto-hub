@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCoinEndpoint } from "../../utils/handleEnpoints";
+import { formatDateToView } from "../../utils/dates";
 
 import Footer from "../../components/footer";
 import Header from "../../components/header/header";
@@ -9,8 +10,10 @@ import InfoCoin from "../../components/coinDetails/infoCoin";
 import CoinLabel from "../../components/coinDetails/coinLabel";
 import CoinField from "../../components/coinDetails/coinField";
 import MarketCoin from "../../components/coinDetails/marketCoin";
-import { formatDateToView } from "../../utils/dates";
 import CurrencyCardMapper from "../../components/coinDetails/currencyCardMapper";
+import theme from "../../styles/theme";
+
+const { xs, sm, } = theme.breakpoints;
 
 const Content = styled.div`
   min-height: 600px;
@@ -21,12 +24,21 @@ const Content = styled.div`
   color: white;
 
   & hr { opacity: 0.2 }
-`;
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    max-width: 100%;
+    width: 100%;
+  }
+  `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    flex-direction: column;
+  }
 `;
 
 export default function CoinDetails() {

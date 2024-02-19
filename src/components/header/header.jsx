@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import theme from '../../styles/theme';
+
+const { xs, sm } = theme.breakpoints;
 
 const Label = styled.h1`
   align-items: center;
@@ -11,22 +14,8 @@ const Label = styled.h1`
   padding-left: 250px;
   width: 100%;
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
     padding-left: 12px;
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
-    padding-left: 12px;
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.md }) {
-    padding-left: 0;
-    justify-content: center;
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.lg }) {
-    padding-left: 0;
-    justify-content: center;
   }
 `;
 

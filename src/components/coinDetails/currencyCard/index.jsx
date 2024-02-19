@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import theme from "../../../styles/theme";
+
+const { xs, sm, } = theme.breakpoints;
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +24,9 @@ const Container = styled.div`
   & p:nth-of-type(3) { width: 130px; }
   & p:last-of-type { padding-right: 6px; }
 
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    & p:last-of-type { display: none }
+  }
 `;
 
 export default function CurrencyCard(props) {

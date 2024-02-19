@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme";
+
+const { xs, sm, } = theme.breakpoints;
 
 export const Container = styled.div`
   display: flex;
@@ -20,5 +23,10 @@ export const Container = styled.div`
 
   & P:last-child {
     padding-right: 12px;
+  }
+
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    width: 100%;
+    margin: 0;
   }
 `;
