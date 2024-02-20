@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CurrencyCard from "../currencyCard";
 import theme from "../../../styles/theme";
 
-import { currencies } from "../../../utils/currency";
+import { currencies, generateFlagIconUrl } from "../../../utils/currency";
 import { maskName } from "../../Card/cardHelpers";
 
 const { xs, sm, } = theme.breakpoints;
@@ -37,7 +37,7 @@ export default function CurrencyCardMapper(props) {
             price={ c[1] }
             varr={ percents[c[0]] }
             label={ currencies[c[0]].label && maskName(currencies[c[0]].label, 25) }
-            image={ defaultFlag }
+            image={ generateFlagIconUrl(c[0]) || defaultFlag }
           />
         ))
       }

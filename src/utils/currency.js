@@ -1,3 +1,12 @@
+
+export function generateFlagIconUrl(flag) {
+  if (flag in currencies && currencies[flag].img.length > 0) {
+    return `${import.meta.env.BASE_URL}flags/${flag.toLowerCase()}.png`;
+  }
+
+  return false;
+}
+
 export const currencies = {
   aed: { label: 'Dirham dos Emirados Árabes Unidos', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/23px-Flag_of_the_United_Arab_Emirates.svg.pnimg: g', },
   ars: { label: 'Peso argentino', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/23px-Flag_of_Argentina.svg.pnimg: g', },
