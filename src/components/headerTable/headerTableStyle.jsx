@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import theme from '../../styles/theme';
+
+const { xs, sm } = theme.breakpoints;
 
 export const Button = styled.button`
   padding: 16px;
@@ -17,7 +20,7 @@ export const Header = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.2);
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
     display: flex;
     justify-content: center;
     position: fixed;
@@ -29,24 +32,6 @@ export const Header = styled.div`
     &button {
       max-width: 80px;
       width: 80px;
-      align-items: stretch;
-    }
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 64px;
-    left: 0;
-    width: 100%;
-    background-color: black;
-
-    &button {
-      display: flex;
-      width: clamp(25%, 33%, 33.34%);
-      justify-content: center;
-      text-align: center;
       align-items: stretch;
     }
   }

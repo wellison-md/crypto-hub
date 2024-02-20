@@ -11,14 +11,6 @@ const MapperContainer = styled.div`
   padding: 10px;
   justify-content: space-evenly;
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
-    padding-bottom: 96px;
-  }
-
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
-    padding-bottom: 96px;
-    justify-content: center;
-  }
 `;
 
 const Info = styled.div`

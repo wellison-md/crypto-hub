@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import theme from '../../styles/theme';
+
+const { xs, sm, md } = theme.breakpoints;
 
 export const CardContainer = styled.div`
   align-items: flex-start;
@@ -15,6 +18,8 @@ export const CardContainer = styled.div`
 
   &:hover { background-color: rgba(255, 255, 255, 0.1); }
   & p { font-size: 12px; }
+  & p:nth-of-type(2) > span { color: #00ff00; }
+  & p:last-of-type > span { color: #ff0000; }
   & div { padding-left: 10px; }
 
   & div > h2 {
@@ -22,13 +27,11 @@ export const CardContainer = styled.div`
     font-weight: bold;
   }
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.xs }) {
-    height: auto;
-
-    & div > h2 { font-size: 15px }
+  @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
+    width: 100%;
   }
 
-  @media (max-width: ${ ({ theme }) => theme.breakpoints.sm }) {
-    width: 100%;
+  @media screen and (min-width: ${sm}) and (max-width: ${md}) {
+    width: 312px;
   }
 `;

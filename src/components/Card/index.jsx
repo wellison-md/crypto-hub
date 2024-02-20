@@ -15,8 +15,8 @@ export default function Card(props) {
       <div>
         <h2>{ maskName(name) }</h2>
         <p>preço: USD { current_price }</p>
-        <p>maior preço 24h: USD { high_24h }</p>
-        <p>menor preço 24h: USD { low_24h }</p>
+        <p><span>▲</span> $/24h: USD { high_24h }</p>
+        <p><span>▼</span> $/24h: USD { low_24h }</p>
       </div>
 
       <p>{ price_change_percentage_24h?.toFixed(1) }%</p>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import theme from "../../../styles/theme";
 
-const { xs, sm } = theme.breakpoints;
+const { xs, sm, } = theme.breakpoints;
 
 const Container = styled.section`
   display: flex;

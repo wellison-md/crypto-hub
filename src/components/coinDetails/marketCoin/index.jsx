@@ -3,7 +3,7 @@ import PriceCard from "../priceCard";
 import PropTypes from "prop-types";
 import theme from "../../../styles/theme";
 
-const { xs, sm } = theme.breakpoints;
+const { xs, sm, } = theme.breakpoints;
 
 const Panel = styled.div`
   display: flex;
@@ -11,7 +11,6 @@ const Panel = styled.div`
   margin: 18px 0;
 
   @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
-    margin: 24px;
     flex-direction: column;
   }
 `;

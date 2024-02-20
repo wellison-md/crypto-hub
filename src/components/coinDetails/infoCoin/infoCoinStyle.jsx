@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from "../../../styles/theme";
 
-const { xs, sm } = theme.breakpoints;
+const { xs, sm, } = theme.breakpoints;
 
 export const CoinLinks = styled.section`
   display: flex;
@@ -11,10 +11,8 @@ export const CoinLinks = styled.section`
   margin: 24px 60px;
 
   @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
-    padding: 0;
-    margin: 24px;
-    display: flex;
     flex-direction: column;
+    margin: 24px;
   }
 `;
 
@@ -26,7 +24,7 @@ export const CoinBio = styled.p`
   padding: 24px 60px;
 
   @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
-    padding: 0;
+    padding: 24px;
   }
 `;
 
@@ -45,10 +43,6 @@ export const CoinLink = styled.a`
   }
 
   @media screen and (min-width: ${xs}) and (max-width: ${sm}) {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 8px;
     width: 100%;
   }
 `;
