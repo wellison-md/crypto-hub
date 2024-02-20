@@ -1,7 +1,24 @@
 import styled from "styled-components";
 import theme from '../../styles/theme';
 
+import { FaSearch } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { Store } from "../../context/store";
+import { searchByName } from "../../utils/handleData";
+
 const { xs, sm } = theme.breakpoints;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SearchBtn = styled.button`
+  padding: 8px 12px;
+  background-color: black;
+  border: none;
+  color: white;
+`;
 
 const Label = styled.h1`
   align-items: center;
@@ -19,6 +36,45 @@ const Label = styled.h1`
   }
 `;
 
+const SearcInput = styled.input`
+  position: fixed;
+  top: 64px;
+  padding: 8px;
+  width: 100%;
+  background-color: lightgray;
+  z-index: 1000;
+`;
+
 export default function Header() {
-  return <Label>crypto.hub</Label>
+  const [isVisible, setIsVisible] = useState(false);
+  const { vault, setCoins } = useContext(Store);
+  const [term, setTerm] = useState('');
+
+  const isHome = window.location.pathname.includes('/coins/details')
+
+  function handleClick(target) {
+    setTerm(target);
+    return setCoins(searchByName([...vault], target));
+  }
+
+  return (
+    <Container>
+      <Label>crypto.hub</Label>
+      {
+        !isHome &&
+        (<SearchBtn onClick={ () => setIsVisible(!isVisible) }>
+           <FaSearch size='16px' />
+         </SearchBtn>)
+      }
+      {
+        isVisible && (
+        <SearcInput
+          type='text'
+          placeholder="digite o nome da moeda"
+          onChange={ (e) => handleClick(e.target.value) }
+          value={ term }
+        />)
+      }
+    </Container>
+  )
 }

@@ -95,3 +95,7 @@ export function limitAt(coins, qty) {
   const limitedList = [...coins].filter((_c, i) => i <= qty);
   return limitedList;
 }
+
+export function searchByName(coins, targetName) {
+  return [...coins].filter((c) => c.name.toLowerCase().includes(targetName.toLowerCase()));
+}
