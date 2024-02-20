@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import PropTypes from 'prop-types';
+import theme from "../../styles/theme";
+
+const { xs, sm } = theme.breakpoints;
 
 const WrapperContainer = styled.div`
   @media screen and (min-width: 1366px) and (max-width: 1600px) {

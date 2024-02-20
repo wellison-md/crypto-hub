@@ -29,7 +29,7 @@ const Content = styled.div`
     max-width: 100%;
     width: 100%;
   }
-  `;
+`;
 
 const Container = styled.div`
   display: flex;

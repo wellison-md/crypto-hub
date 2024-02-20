@@ -21,7 +21,7 @@ export const Container = styled.div`
     margin-left: 12px;
   }
 
-  & P:last-child {
+  & p:last-child {
     padding-right: 12px;
   }
 

@@ -6,6 +6,7 @@ const { xs, sm, } = theme.breakpoints;
 export const CoinLinks = styled.section`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   margin: 24px 60px;
 
