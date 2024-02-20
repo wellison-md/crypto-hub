@@ -14,19 +14,4 @@ export const WindowContainer = styled.div`
     left: 25%;
 
   }
-
-  @media screen and (min-width: 320px) and (max-width: 576px) {}
-
-  @media screen and (min-width: 576px) and (max-width: 768px) {}
-
-  @media screen and (min-width: 768px) and (max-width: 992px) {}
-
-  @media screen and (min-width: 992px) and (max-width: 1200px) {}
-
-  @media screen and (min-width: 1200px) and (max-width: 1366px) {}
-
-  @media screen and (min-width: 1366px) and (max-width: 1600px) {}
-
-  @media screen and (min-width: 1600px) and (max-width: 1920px) {}
-
 `;
