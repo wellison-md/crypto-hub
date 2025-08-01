@@ -36,7 +36,7 @@ export default function CurrencyCardMapper(props) {
             id={ c[0] }
             price={ c[1] }
             varr={ percents[c[0]] }
-            label={ currencies[c[0]].label && maskName(currencies[c[0]].label, 25) }
+            label={ currencies[c[0]]?.label && maskName(currencies[c[0]]?.label, 25) }
             image={ generateFlagIconUrl(c[0]) || defaultFlag }
           />
         ))
